@@ -46,6 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 "-x", "--audio-format", "mp3",
                 "--audio-quality", "0",
                 "-o", NSHomeDirectory() + "/Downloads/%(title)s.%(ext)s",
+                "--postcoder", "ffmpeg -i %(filepath)s -codec:a libmp3lame -q:a 0 %(filepath)s.temp && mv %(filepath)s.temp %(filepath)s",
                 videoURL
             ]
             
