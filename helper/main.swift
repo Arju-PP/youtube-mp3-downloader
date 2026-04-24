@@ -43,10 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let process = Process()
             process.executableURL = URL(fileURLWithPath: "/Library/Frameworks/Python.framework/Versions/3.11/bin/yt-dlp")
             process.arguments = [
-                "-x", "--audio-format", "mp3",
+                "--extract-audio",
+                "--audio-format", "mp3",
                 "--audio-quality", "0",
                 "-o", NSHomeDirectory() + "/Downloads/%(title)s.%(ext)s",
-                "--postcoder", "ffmpeg -i %(filepath)s -codec:a libmp3lame -q:a 0 %(filepath)s.temp && mv %(filepath)s.temp %(filepath)s",
                 videoURL
             ]
             
